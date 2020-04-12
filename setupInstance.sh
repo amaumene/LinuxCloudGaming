@@ -43,17 +43,17 @@ nohup runuser -l $username -c 'DISPLAY=:0 steam'&
 
 #WEB VNC
 #This is used for accessing desktop over web for typing in Steam credentials and troubleshooting
-WEBSOCKIFY_VERSION=0.9.0
-NOVNC_VERSION=1.1.0
+#WEBSOCKIFY_VERSION=0.9.0
+#NOVNC_VERSION=1.1.0
 
-curl -fsSL https://github.com/novnc/noVNC/archive/v${NOVNC_VERSION}.tar.gz | tar -xzf - -C /opt
-curl -fsSL https://github.com/novnc/websockify/archive/v${WEBSOCKIFY_VERSION}.tar.gz | tar -xzf - -C /opt
-mv /opt/noVNC-${NOVNC_VERSION} /opt/noVNC
-mv /opt/websockify-${WEBSOCKIFY_VERSION} /opt/websockify
-ln -s /opt/noVNC/vnc_lite.html /opt/noVNC/index.html
-cd /opt/websockify && make
+#curl -fsSL https://github.com/novnc/noVNC/archive/v${NOVNC_VERSION}.tar.gz | tar -xzf - -C /opt
+#curl -fsSL https://github.com/novnc/websockify/archive/v${WEBSOCKIFY_VERSION}.tar.gz | tar -xzf - -C /opt
+#mv /opt/noVNC-${NOVNC_VERSION} /opt/noVNC
+#mv /opt/websockify-${WEBSOCKIFY_VERSION} /opt/websockify
+#ln -s /opt/noVNC/vnc_lite.html /opt/noVNC/index.html
+#cd /opt/websockify && make
 #make self signed certificate
-runuser -l $username -c "openssl req -new -x509 -days 365 -nodes -subj '/C=TR/emailAddress=a/ST=a/L=a/O=a/OU=a/CN=a' -out /home/$username/self.pem -keyout /home/$username/self.pem"
-nohup runuser -l $username -c '/opt/websockify/run 5901 --cert=./self.pem --ssl-only --web=/opt/noVNC --wrap-mode=ignore -- x11vnc  -usepw -display :0 -rfbport 5901 -loop -forever -repeat -noxdamage'&
+#runuser -l $username -c "openssl req -new -x509 -days 365 -nodes -subj '/C=TR/emailAddress=a/ST=a/L=a/O=a/OU=a/CN=a' -out /home/$username/self.pem -keyout /home/$username/self.pem"
+#nohup runuser -l $username -c '/opt/websockify/run 5901 --cert=./self.pem --ssl-only --web=/opt/noVNC --wrap-mode=ignore -- x11vnc  -usepw -display :0 -rfbport 5901 -loop -forever -repeat -noxdamage'&
 
 #TODO add websockify-vnc as a service to run at startup, this is useful after a reboot
