@@ -2,7 +2,7 @@
 
 This is a setup script for Linux cloud gaming instance on GCP. It should be setup as a startup script.
 
-Some firewall settings needed for Steam Remoteplay and Vnc over web. Also setup your keys for ssh login if you need it.This REAME needs more updating.
+Some firewall settings needed for Steam Remote Play and VNC over web. Also setup your keys for SSH login if you need it. This REAME needs more updating.
 
 Allow HTTPS (tcp 443) and following ports for Steam Remote Play:
 ```
@@ -17,14 +17,14 @@ udp:27036
 Add this as startup script to your instance metadata:
 
 ```bash
-wget -O - https://raw.githubusercontent.com/komurlu/LinuxCloudGaming/master/setupInstance.sh | bash
+wget -O - https://raw.githubusercontent.com/amaumene/LinuxCloudGaming/master/setupInstance.sh | bash
 ```
 Add following as custom metadata (without semicolons)
 ```
 vncpass: "A password you'll chose for Remote Desktoping to your VM over the web"
 linuxuser: "Your local username for the VM"
 ```
-![alt text](https://raw.githubusercontent.com/komurlu/LinuxCloudGaming/master/images/metadata.JPG)
+![alt text](https://raw.githubusercontent.com/amaumene/LinuxCloudGaming/master/images/metadata.JPG)
 
 <b>Disks:</b> Attach an additional disk when creating your instance for installing your games. You can select SSD/Standart persistent disk or local SSD scratch disk. (Local SSD will be terminated if you delete your instance, your game download will be lost) This disk will be mounted under `/mnt/game`.
 
