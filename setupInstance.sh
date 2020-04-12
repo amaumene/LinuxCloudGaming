@@ -8,7 +8,7 @@ dpkg --add-architecture i386
 curl -O https://storage.googleapis.com/nvidia-drivers-us-public/GRID/GRID10.1/NVIDIA-Linux-x86_64-440.56-grid.run &
 
 apt update
-apt upgrade
+apt upgrade -y
 apt install -y dialog pulseaudio libsdl2-image-2.0-0 xserver-xorg-core \
       x11-apps x11-utils mesa-utils xterm xfonts-base tigervnc-common \
       x11-xserver-utils x11vnc icewm steam-installer gcc make python pkg-config-aarch64-linux-gnu 
